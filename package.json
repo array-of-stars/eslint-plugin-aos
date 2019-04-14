@@ -1,0 +1,15 @@
+{
+  "name": "eslint-plugin-no-vhtml-without-filter",
+  "version": "0.1.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "eslint": "^5.16.0",
+    "eslint-plugin-vue": "^5.2.2"
+  }
+}
