@@ -46,16 +46,16 @@ module.exports = {
           return;
         }
 
-        if ('BinaryExpression' !== val.expression.type
-          || val.expression.operator !== '|'
-          || val.expression.right.name !== filter) {
+        if ('CallExpression' !== val.expression.type
+          || val.expression.callee.name !== filter) {
 
+          const start = template.getFirstToken(val);
           const close = template.getLastToken(item);
 
           context.report({
             node: item,
             message: '\'v-html\' directive does not filter its contents',
-            fix: (fixer) => fixer.insertTextBefore(close, ` | ${filter}`)
+            fix: (fixer) => [ fixer.insertTextAfter(start, `${filter}(`), fixer.insertTextBefore(close, ')') ]
           });
         }
 
